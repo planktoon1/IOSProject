@@ -21,20 +21,20 @@ class FirebaseService {
         dataList = []
         reference.observe(DataEventType.childAdded) { (snapshot) in
             self.dataList.append(self.firebaseToData(snapshot))
-            print("Got snapshot")
-            print(self.dataList.count)
-            self.getDataList(ids: [123])
         }
     }
     
     let testData = Data(coordinate: CLLocationCoordinate2DMake(0.0, 0.0), ph: 10, moisture: 18, temperature: 8, id: 37594395348, date: Date.init())
-    
+
     func pushTestData(){
         pushDataObject(data: testData)
     }
     
     func pushDataObject(data: Data){
         reference.childByAutoId().setValue(data.asDictionary())
+        var idList = UserDefaults.standard.array(forKey: "IdList") as! Array<Any>
+        idList.append(data.id)
+        print(idList)
         //Incomplete Function
     }
     
@@ -58,7 +58,6 @@ class FirebaseService {
     
     func getDataList(ids: [Int]) -> [Data]? {
         print("Get DataList")
-        //Incomplete Function
         let result = dataList
         print(result as Any)
         return result
