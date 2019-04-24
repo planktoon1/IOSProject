@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseDatabase
 
 class Firebase {
-    
+    var reference = Database.reference("")
 }
