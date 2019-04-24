@@ -8,18 +8,20 @@
 
 import Foundation
 import CoreBluetooth
+import UIKit
 
-class Bluetooth {
+class BluetoothConnection: ViewController {
     var centralManager: CBCentralManager?
     var peripheral: CBPeripheral?
     var characteristic: CBCharacteristic?
     
-    init() {
+    override func viewDidLoad() {
         centralManager = CBCentralManager(delegate: self, queue: nil)
     }
+    
 }
 
-extension Bluetooth: CBCentralManagerDelegate {
+extension BluetoothConnection: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         guard let centralManager = centralManager else {return}
         
@@ -71,7 +73,7 @@ extension Bluetooth: CBCentralManagerDelegate {
     
 }
 
-extension Bluetooth: CBPeripheralDelegate {
+extension BluetoothConnection: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else {return}
         
@@ -83,7 +85,7 @@ extension Bluetooth: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         guard let characteristics = service.characteristics else {return}
         
-        for characteristic in charracteristics {
+        for characteristic in characteristics {
             self.peripheral?.readValue(for: characteristic)
             self.peripheral?.setNotifyValue(true, for: characteristic)
             // TODO: Håndter data
