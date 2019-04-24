@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A5C593EE3C7F1E1D3CD1CB1 /* Pods_IOSProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B339E7537EC06914697F9B /* Pods_IOSProject.framework */; };
 		BE7F87E422703E9600072AFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87E322703E9600072AFF /* AppDelegate.swift */; };
 		BE7F87E622703E9600072AFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87E522703E9600072AFF /* ViewController.swift */; };
 		BE7F87E922703E9600072AFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7F87E722703E9600072AFF /* Main.storyboard */; };
 		BE7F87EB22703E9700072AFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7F87EA22703E9700072AFF /* Assets.xcassets */; };
 		BE7F87EE22703E9700072AFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7F87EC22703E9700072AFF /* LaunchScreen.storyboard */; };
 		BE7F87F62270424300072AFF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87F52270424300072AFF /* Data.swift */; };
+		BE7F87F8227045AB00072AFF /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87F7227045AB00072AFF /* Firebase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35B339E7537EC06914697F9B /* Pods_IOSProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3F813F4772B3686C8067D9C /* Pods-IOSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.release.xcconfig"; path = "Target Support Files/Pods-IOSProject/Pods-IOSProject.release.xcconfig"; sourceTree = "<group>"; };
 		BE7F87E022703E9600072AFF /* IOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7F87E322703E9600072AFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE7F87E522703E9600072AFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		BE7F87ED22703E9700072AFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE7F87EF22703E9700072AFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE7F87F52270424300072AFF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		BE7F87F7227045AB00072AFF /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		F48F2EC923F3CFE9DA139904 /* Pods-IOSProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.debug.xcconfig"; path = "Target Support Files/Pods-IOSProject/Pods-IOSProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5C593EE3C7F1E1D3CD1CB1 /* Pods_IOSProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17887396BC1D2426DD9CAE55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35B339E7537EC06914697F9B /* Pods_IOSProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		388B11A66A7A4150DCDE331F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F48F2EC923F3CFE9DA139904 /* Pods-IOSProject.debug.xcconfig */,
+				B3F813F4772B3686C8067D9C /* Pods-IOSProject.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BE7F87D722703E9600072AFF = {
 			isa = PBXGroup;
 			children = (
 				BE7F87E222703E9600072AFF /* IOSProject */,
 				BE7F87E122703E9600072AFF /* Products */,
+				388B11A66A7A4150DCDE331F /* Pods */,
+				17887396BC1D2426DD9CAE55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +90,7 @@
 				BE7F87EC22703E9700072AFF /* LaunchScreen.storyboard */,
 				BE7F87EF22703E9700072AFF /* Info.plist */,
 				BE7F87F52270424300072AFF /* Data.swift */,
+				BE7F87F7227045AB00072AFF /* Firebase.swift */,
 			);
 			path = IOSProject;
 			sourceTree = "<group>";
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE7F87F222703E9700072AFF /* Build configuration list for PBXNativeTarget "IOSProject" */;
 			buildPhases = (
+				339E60CC7F571D2F5758FDA0 /* [CP] Check Pods Manifest.lock */,
 				BE7F87DC22703E9600072AFF /* Sources */,
 				BE7F87DD22703E9600072AFF /* Frameworks */,
 				BE7F87DE22703E9600072AFF /* Resources */,
+				AA297DC4E32F0D8A3776DFC2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +163,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		339E60CC7F571D2F5758FDA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IOSProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA297DC4E32F0D8A3776DFC2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IOSProject/Pods-IOSProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IOSProject/Pods-IOSProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE7F87DC22703E9600072AFF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +221,7 @@
 			files = (
 				BE7F87E622703E9600072AFF /* ViewController.swift in Sources */,
 				BE7F87F62270424300072AFF /* Data.swift in Sources */,
+				BE7F87F8227045AB00072AFF /* Firebase.swift in Sources */,
 				BE7F87E422703E9600072AFF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +366,7 @@
 		};
 		BE7F87F322703E9700072AFF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F48F2EC923F3CFE9DA139904 /* Pods-IOSProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +384,7 @@
 		};
 		BE7F87F422703E9700072AFF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3F813F4772B3686C8067D9C /* Pods-IOSProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
