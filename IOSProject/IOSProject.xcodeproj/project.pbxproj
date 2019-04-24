@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A5C593EE3C7F1E1D3CD1CB1 /* Pods_IOSProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B339E7537EC06914697F9B /* Pods_IOSProject.framework */; };
+		B6F027BC227049CF00DF565D /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F027BB227049CF00DF565D /* Bluetooth.swift */; };
 		BE7F87E422703E9600072AFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87E322703E9600072AFF /* AppDelegate.swift */; };
 		BE7F87E622703E9600072AFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87E522703E9600072AFF /* ViewController.swift */; };
 		BE7F87E922703E9600072AFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7F87E722703E9600072AFF /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		35B339E7537EC06914697F9B /* Pods_IOSProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F813F4772B3686C8067D9C /* Pods-IOSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.release.xcconfig"; path = "Target Support Files/Pods-IOSProject/Pods-IOSProject.release.xcconfig"; sourceTree = "<group>"; };
+		B6F027BB227049CF00DF565D /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
 		BE7F87E022703E9600072AFF /* IOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7F87E322703E9600072AFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE7F87E522703E9600072AFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +60,6 @@
 				F48F2EC923F3CFE9DA139904 /* Pods-IOSProject.debug.xcconfig */,
 				B3F813F4772B3686C8067D9C /* Pods-IOSProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -91,6 +92,7 @@
 				BE7F87EF22703E9700072AFF /* Info.plist */,
 				BE7F87F52270424300072AFF /* Data.swift */,
 				BE7F87F7227045AB00072AFF /* Firebase.swift */,
+				B6F027BB227049CF00DF565D /* Bluetooth.swift */,
 			);
 			path = IOSProject;
 			sourceTree = "<group>";
@@ -220,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE7F87E622703E9600072AFF /* ViewController.swift in Sources */,
+				B6F027BC227049CF00DF565D /* Bluetooth.swift in Sources */,
 				BE7F87F62270424300072AFF /* Data.swift in Sources */,
 				BE7F87F8227045AB00072AFF /* Firebase.swift in Sources */,
 				BE7F87E422703E9600072AFF /* AppDelegate.swift in Sources */,
