@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1A5C593EE3C7F1E1D3CD1CB1 /* Pods_IOSProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B339E7537EC06914697F9B /* Pods_IOSProject.framework */; };
+		A65795B722705FC500B1D28B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65795B622705FC500B1D28B /* DetailViewController.swift */; };
 		BE7F87E422703E9600072AFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87E322703E9600072AFF /* AppDelegate.swift */; };
-		BE7F87E622703E9600072AFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87E522703E9600072AFF /* ViewController.swift */; };
+		BE7F87E622703E9600072AFF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87E522703E9600072AFF /* MapViewController.swift */; };
 		BE7F87E922703E9600072AFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7F87E722703E9600072AFF /* Main.storyboard */; };
 		BE7F87EB22703E9700072AFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7F87EA22703E9700072AFF /* Assets.xcassets */; };
 		BE7F87EE22703E9700072AFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7F87EC22703E9700072AFF /* LaunchScreen.storyboard */; };
@@ -19,10 +20,11 @@
 
 /* Begin PBXFileReference section */
 		35B339E7537EC06914697F9B /* Pods_IOSProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A65795B622705FC500B1D28B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B3F813F4772B3686C8067D9C /* Pods-IOSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.release.xcconfig"; path = "Target Support Files/Pods-IOSProject/Pods-IOSProject.release.xcconfig"; sourceTree = "<group>"; };
 		BE7F87E022703E9600072AFF /* IOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7F87E322703E9600072AFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE7F87E522703E9600072AFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE7F87E522703E9600072AFF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BE7F87E822703E9600072AFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE7F87EA22703E9700072AFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE7F87ED22703E9700072AFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +60,6 @@
 				F48F2EC923F3CFE9DA139904 /* Pods-IOSProject.debug.xcconfig */,
 				B3F813F4772B3686C8067D9C /* Pods-IOSProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,13 +85,14 @@
 			isa = PBXGroup;
 			children = (
 				BE7F87E322703E9600072AFF /* AppDelegate.swift */,
-				BE7F87E522703E9600072AFF /* ViewController.swift */,
+				BE7F87E522703E9600072AFF /* MapViewController.swift */,
 				BE7F87E722703E9600072AFF /* Main.storyboard */,
 				BE7F87EA22703E9700072AFF /* Assets.xcassets */,
 				BE7F87EC22703E9700072AFF /* LaunchScreen.storyboard */,
 				BE7F87EF22703E9700072AFF /* Info.plist */,
 				BE7F87F52270424300072AFF /* Data.swift */,
 				BE7F87F7227045AB00072AFF /* Firebase.swift */,
+				A65795B622705FC500B1D28B /* DetailViewController.swift */,
 			);
 			path = IOSProject;
 			sourceTree = "<group>";
@@ -219,8 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE7F87E622703E9600072AFF /* ViewController.swift in Sources */,
+				BE7F87E622703E9600072AFF /* MapViewController.swift in Sources */,
 				BE7F87F62270424300072AFF /* Data.swift in Sources */,
+				A65795B722705FC500B1D28B /* DetailViewController.swift in Sources */,
 				BE7F87F8227045AB00072AFF /* Firebase.swift in Sources */,
 				BE7F87E422703E9600072AFF /* AppDelegate.swift in Sources */,
 			);
