@@ -17,14 +17,25 @@ class FirebaseService {
     
     var dataList: [Data]
     
-    init() {
+    private static var instance: FirebaseService?
+    
+    private init() {
         dataList = []
         reference.observe(DataEventType.childAdded) { (snapshot) in
             self.dataList.append(self.firebaseToData(snapshot))
         }
     }
     
-    let testData = Data(coordinate: CLLocationCoordinate2DMake(0.0, 0.0), ph: 10, moisture: 18, temperature: 8, id: 37594395348, date: Date.init())
+    static func getInstance() -> FirebaseService {
+        if let instance = instance {
+            return instance
+        }else {
+            instance = FirebaseService()
+            return instance!
+        }
+    }
+    
+    let testData = Data(coordinate: CLLocationCoordinate2DMake(0.0, 0.0), ph: 10, moisture: 18, temperature: 8, id: 3348, date: Date.init())
 
     func pushTestData(){
         pushDataObject(data: testData)
@@ -32,9 +43,17 @@ class FirebaseService {
     
     func pushDataObject(data: Data){
         reference.childByAutoId().setValue(data.asDictionary())
-        var idList = UserDefaults.standard.array(forKey: "IdList") as! Array<Any>
-        idList.append(data.id)
-        print(idList)
+        let user = UserDefaults()
+        if var idList = user.array(forKey: "IdList") as? [Int]{
+            if !idList.contains(data.id){
+                idList.append(data.id)
+                user.set(idList, forKey: "IdList")
+            }
+            print(idList)
+        }else{
+            user.set([data.id], forKey: "IdList")
+            print("Test")
+        }
         //Incomplete Function
     }
     
