@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A5C593EE3C7F1E1D3CD1CB1 /* Pods_IOSProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B339E7537EC06914697F9B /* Pods_IOSProject.framework */; };
 		A65795B722705FC500B1D28B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65795B622705FC500B1D28B /* DetailViewController.swift */; };
+		B6EC0656227978460080997C /* BluetoothConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0655227978460080997C /* BluetoothConnection.swift */; };
 		BE7F87E422703E9600072AFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87E322703E9600072AFF /* AppDelegate.swift */; };
 		BE7F87E622703E9600072AFF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87E522703E9600072AFF /* MapViewController.swift */; };
 		BE7F87E922703E9600072AFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7F87E722703E9600072AFF /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		35B339E7537EC06914697F9B /* Pods_IOSProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A65795B622705FC500B1D28B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B3F813F4772B3686C8067D9C /* Pods-IOSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.release.xcconfig"; path = "Target Support Files/Pods-IOSProject/Pods-IOSProject.release.xcconfig"; sourceTree = "<group>"; };
+		B6EC0655227978460080997C /* BluetoothConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothConnection.swift; sourceTree = "<group>"; };
 		BE7F87E022703E9600072AFF /* IOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7F87E322703E9600072AFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE7F87E522703E9600072AFF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				BE7F87E722703E9600072AFF /* Main.storyboard */,
 				BE7F87EA22703E9700072AFF /* Assets.xcassets */,
 				BE7F87EC22703E9700072AFF /* LaunchScreen.storyboard */,
+				B6EC0655227978460080997C /* BluetoothConnection.swift */,
 				BE7F87EF22703E9700072AFF /* Info.plist */,
 				BE7F87F52270424300072AFF /* Data.swift */,
 				BE7F87F7227045AB00072AFF /* Firebase.swift */,
@@ -237,6 +240,7 @@
 				BE7F87F62270424300072AFF /* Data.swift in Sources */,
 				A65795B722705FC500B1D28B /* DetailViewController.swift in Sources */,
 				BE7F87F8227045AB00072AFF /* Firebase.swift in Sources */,
+				B6EC0656227978460080997C /* BluetoothConnection.swift in Sources */,
 				BE7F87E422703E9600072AFF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

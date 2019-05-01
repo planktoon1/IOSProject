@@ -11,9 +11,9 @@ import CoreBluetooth
 import UIKit
 import CoreLocation
 
-class BluetoothConnection: ViewController {
+class BluetoothConnection: UIViewController {
     
-    var firebaseService = FirebaseService()
+    var firebaseService = FirebaseService.getInstance()
     var centralManager: CBCentralManager?
     var peripheral: CBPeripheral?
     var characteristic: CBCharacteristic?
