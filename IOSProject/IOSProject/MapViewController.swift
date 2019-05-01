@@ -10,14 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class UserAnnotation: NSObject, MKAnnotation{
-    var coordinate: CLLocationCoordinate2D
-    init(coordinate: CLLocationCoordinate2D) {
-        self.coordinate = coordinate
-    }
-}
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
 
     let locationManager = CLLocationManager()
     
@@ -27,9 +21,11 @@ class MapViewController: UIViewController {
         //Get new readings based on the date
         getReadings()
     }
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var mapView: MKMapView!{
         didSet{
+            mapView.delegate = self
             locationManager.delegate = self
             locationManager.requestWhenInUseAuthorization()
             locationManager.startUpdatingLocation()
@@ -41,11 +37,58 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getReadings()
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print("Hej")
+        guard annotation is MKPointAnnotation else { return nil }
         
+        let identifier = "Annotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+            
+            let rightButton = UIButton(type: UIButton.ButtonType.detailDisclosure)
+            
+            annotationView!.rightCalloutAccessoryView = rightButton
+            
+        } else {
+            annotationView!.annotation = annotation
+        }
+        
+        return annotationView
+    }
+ 
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            performSegue(withIdentifier: "annotationDetail", sender: view)
+        }
+    }
+    
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "annotationDetail" )
+        {
+            var destination = segue.destination as! DetailViewController
+            //Send data to detailView (ID of chosen pin) or reference somewhere to get in the next viewcontroller
+        }
     }
     
     
     func getReadings(){
+        //Test Data
+        let annotation = MKPointAnnotation()
+        annotation.title = datePicker.date.description
+        annotation.subtitle = "ID: 123 PH: 12.5 Moist: 11.5 Temp: 5 degress"
+        let lat = Double(56.120698)
+        let long = Double(10.146591)
+        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        annotation.coordinate = coordinate
+        mapView.addAnnotation(annotation)
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
+        mapView.setRegion(region, animated: true)
+        
         //Get Data from firebase.
         /*
         if let data = Data.getData(){
@@ -53,8 +96,8 @@ class MapViewController: UIViewController {
                 //Check if the date is equal to the date chosen.
                 if data.date == datePicker.date{
                     //Latitude and longitude for the coord.
-                    let lat = Double(data.coordinates.lat) //Needs data
-                    let long = Double(data.coordinates.long) //Needs data
+                    let lat = Double(data.coordinates.lat)
+                    let long = Double(data.coordinates.long)
                     if let lat = lat, let long = long{
                         //Make the coord
                         let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
@@ -65,16 +108,22 @@ class MapViewController: UIViewController {
                             mapView.setRegion(region, animated: true)
                         }
                         //Make annotation with description
-                        let userAnnotation =  UserAnnotation(coordinate: coordinate, title: data.date, subtitle: "ID: \(data.id) PH: \(data.ph) Moist: \(data.moisture) Temp: \(data.temperature)")
-                        mapView.addAnnotation(userAnnotation)
+                        let annotation = MKPointAnnotation()
+                        annotation.title = data.date
+                        annotation.subtitle = "PH: \(data.ph) Moist: \(data.moisture) Temp: \(data.temperature) Humid: \(data.humidity)"
+                        annotation.coordinate = coordinate
+                        mapView.addAnnotation(annotation)
                     }
                 }
             }
         }
     */
     }
+    
 
 }
+
+
 
 extension MapViewController : CLLocationManagerDelegate{
     
