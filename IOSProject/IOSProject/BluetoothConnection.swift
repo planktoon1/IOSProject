@@ -9,8 +9,11 @@
 import Foundation
 import CoreBluetooth
 import UIKit
+import CoreLocation
 
-class BluetoothConnection: ViewController {
+class BluetoothConnection: UIViewController {
+    
+    var firebaseService = FirebaseService.getInstance()
     var centralManager: CBCentralManager?
     var peripheral: CBPeripheral?
     var characteristic: CBCharacteristic?
@@ -96,8 +99,15 @@ extension BluetoothConnection: CBPeripheralDelegate {
         // Ændres til at passe med den data vi får fra dimsen
         let data = String(bytes: characteristic.value!, encoding: String.Encoding.utf8)
         if let data = data?.components(separatedBy: ":") {
-            if data.count > 1 {
+            if data.count > 3 {
                 // TODO: Opret data og gem i firebase
+                let id = data[0]
+                let moist = data[1]
+                let ph = data[2]
+                let temp = data[3]
+                
+                //let testData = Data(coordinate: CLLocationCoordinate2DMake(0.0, 0.0), ph: ph, moisture: moist, temperature: temp, id: id, date: Date.init())
+                //firebaseService.pushDataObject(data: testData)
             }
         }
     }
