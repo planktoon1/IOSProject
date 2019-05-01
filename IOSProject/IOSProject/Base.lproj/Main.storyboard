@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="shc-gN-Zo5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="shc-gN-Zo5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,6 +58,7 @@
                     <connections>
                         <outlet property="datePicker" destination="afh-hD-hX1" id="WlV-mr-BC1"/>
                         <outlet property="mapView" destination="a3k-Av-zaA" id="YLk-cO-03R"/>
+                        <segue destination="u6s-O5-3E0" kind="show" identifier="readingDetails" id="h9J-RZ-ULE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -72,12 +73,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdI-5n-lzc">
-                                <rect key="frame" x="144.5" y="20" width="86" height="54"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Air Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlW-GC-Fcq">
                                 <rect key="frame" x="16" y="98" width="123" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -161,9 +156,7 @@
                         <constraints>
                             <constraint firstItem="PRp-Iz-HHr" firstAttribute="centerY" secondItem="ZzI-sV-Hfv" secondAttribute="centerY" id="1em-ZP-4ld"/>
                             <constraint firstItem="aFg-cW-Tjc" firstAttribute="centerY" secondItem="ZzI-sV-Hfv" secondAttribute="centerY" id="D6Q-w9-xkc"/>
-                            <constraint firstItem="OdI-5n-lzc" firstAttribute="centerX" secondItem="ZzI-sV-Hfv" secondAttribute="centerX" id="Juq-NV-Epj"/>
                             <constraint firstItem="Boc-c2-Ofm" firstAttribute="centerY" secondItem="ZzI-sV-Hfv" secondAttribute="centerY" id="Kpm-hD-XHq"/>
-                            <constraint firstItem="OdI-5n-lzc" firstAttribute="top" secondItem="3DL-BX-lS6" secondAttribute="top" id="Lt4-91-vx8"/>
                             <constraint firstItem="C8E-VS-qAy" firstAttribute="centerY" secondItem="ZzI-sV-Hfv" secondAttribute="centerY" id="Rxt-xT-xjF"/>
                             <constraint firstItem="dp7-zG-QNB" firstAttribute="centerY" secondItem="ZzI-sV-Hfv" secondAttribute="centerY" id="ZNc-Cy-CKe"/>
                             <constraint firstItem="0kG-mx-k3b" firstAttribute="centerY" secondItem="ZzI-sV-Hfv" secondAttribute="centerY" id="wky-2e-Tgk"/>
@@ -172,7 +165,6 @@
                     </view>
                     <connections>
                         <outlet property="airTempMeasurementLabel" destination="PRp-Iz-HHr" id="4hN-NC-UCh"/>
-                        <outlet property="dateLabel" destination="OdI-5n-lzc" id="N3O-qk-xpn"/>
                         <outlet property="electricConductMeasurementLabel" destination="0kG-mx-k3b" id="Sa8-lK-ZCj"/>
                         <outlet property="humidityMeasurementLabel" destination="Boc-c2-Ofm" id="Pe6-CY-lTd"/>
                         <outlet property="phMeasurementLabel" destination="dp7-zG-QNB" id="aHe-kg-1SK"/>

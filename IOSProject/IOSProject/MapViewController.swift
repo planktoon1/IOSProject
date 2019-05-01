@@ -40,7 +40,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        print("Hej")
         guard annotation is MKPointAnnotation else { return nil }
         
         let identifier = "Annotation"
@@ -63,12 +62,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
  
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            performSegue(withIdentifier: "annotationDetail", sender: view)
+            performSegue(withIdentifier: "readingDetails", sender: view)
         }
     }
     
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "annotationDetail" )
+        if (segue.identifier == "readingDetails" )
         {
             var destination = segue.destination as! DetailViewController
             //Send data to detailView (ID of chosen pin) or reference somewhere to get in the next viewcontroller

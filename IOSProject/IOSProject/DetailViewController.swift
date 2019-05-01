@@ -11,8 +11,6 @@ import UIKit
 class DetailViewController: UIViewController {
     
     
-    @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var airTempMeasurementLabel: UILabel!
     
     @IBOutlet weak var humidityMeasurementLabel: UILabel!
