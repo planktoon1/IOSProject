@@ -9,7 +9,25 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var airTempMeasurementLabel: UILabel!
+    
+    @IBOutlet weak var humidityMeasurementLabel: UILabel!
+    
+    @IBOutlet weak var soilTempMeasurementLabel: UILabel!
+    
+    @IBOutlet weak var soilMoistureMeasurementLabel: UILabel!
+    
+    @IBOutlet weak var phMeasurementLabel: UILabel!
+    
+    @IBOutlet weak var electricConductMeasurementLabel: UILabel!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
