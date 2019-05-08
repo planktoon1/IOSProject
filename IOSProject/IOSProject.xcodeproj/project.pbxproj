@@ -18,6 +18,7 @@
 		BE7F87EE22703E9700072AFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7F87EC22703E9700072AFF /* LaunchScreen.storyboard */; };
 		BE7F87F62270424300072AFF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87F52270424300072AFF /* Data.swift */; };
 		BE7F87F8227045AB00072AFF /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F87F7227045AB00072AFF /* Firebase.swift */; };
+		C6F4F55F2282D0EB002CEEB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6F4F55E2282D0EB002CEEB4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		BE7F87EF22703E9700072AFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE7F87F52270424300072AFF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		BE7F87F7227045AB00072AFF /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		C6F4F55E2282D0EB002CEEB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F48F2EC923F3CFE9DA139904 /* Pods-IOSProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.debug.xcconfig"; path = "Target Support Files/Pods-IOSProject/Pods-IOSProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +98,7 @@
 		BE7F87E222703E9600072AFF /* IOSProject */ = {
 			isa = PBXGroup;
 			children = (
-				A694BCBF2282C7A5005C17A4 /* GoogleService-Info.plist */,
+				C6F4F55E2282D0EB002CEEB4 /* GoogleService-Info.plist */,
 				BE7F87E322703E9600072AFF /* AppDelegate.swift */,
 				BE7F87E522703E9600072AFF /* MapViewController.swift */,
 				A694BCC12282CCEC005C17A4 /* BluetoothConnection.swift */,
@@ -172,7 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE7F87EE22703E9700072AFF /* LaunchScreen.storyboard in Resources */,
-				A694BCC02282C7A5005C17A4 /* GoogleService-Info.plist in Resources */,
+				C6F4F55F2282D0EB002CEEB4 /* GoogleService-Info.plist in Resources */,
 				BE7F87EB22703E9700072AFF /* Assets.xcassets in Resources */,
 				BE7F87E922703E9600072AFF /* Main.storyboard in Resources */,
 			);
