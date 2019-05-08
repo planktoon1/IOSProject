@@ -20,7 +20,7 @@ class Data {
     var id: Int
     var date: Date
     
-    init(latitude: Float, longitude: Float, airTemp: Float, soilTemp: Float, ph: Float, humidity: Float, moisture: Float, EC: Float) {
+    init(latitude: Float, longitude: Float, airTemp: Float, soilTemp: Float, ph: Float, humidity: Float, moisture: Float, EC: Float, date: Date) {
         let lat = Double(latitude)
         let long = Double(longitude)
         self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long) //Fås fra telefonen
@@ -31,7 +31,7 @@ class Data {
         self.moisture = moisture //Fås fra sensor
         self.EC = EC //Fås fra sensor
         self.id = 1 //Tempvalue
-        self.date = Date.init()
+        self.date = date
     }
     
     func asDictionary() -> NSDictionary{

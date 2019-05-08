@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>560261536785-795dctr3svlq6dv13ihkffpaedraaage.apps.googleusercontent.com</string>
+	<string>968450941614-39qvo0g9meag0h2a2lt9urjgt19krqkj.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.560261536785-795dctr3svlq6dv13ihkffpaedraaage</string>
+	<string>com.googleusercontent.apps.968450941614-39qvo0g9meag0h2a2lt9urjgt19krqkj</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCHVCMWlcKfwUiTHjxqN9G3OLAsXoLvPsQ</string>
+	<string>AIzaSyA77hXorJlozMBJeA18y5eJNLvHBpUod8E</string>
 	<key>GCM_SENDER_ID</key>
-	<string>560261536785</string>
+	<string>968450941614</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>dk.eaaa.IOSProject</string>
 	<key>PROJECT_ID</key>
-	<string>jordmaalings-projekt</string>
+	<string>iosproject-d2c7c</string>
 	<key>STORAGE_BUCKET</key>
-	<string>jordmaalings-projekt.appspot.com</string>
+	<string>iosproject-d2c7c.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:560261536785:ios:76837426820a0809</string>
+	<string>1:968450941614:ios:76837426820a0809</string>
 	<key>DATABASE_URL</key>
-	<string>https://jordmaalings-projekt.firebaseio.com</string>
+	<string>https://iosproject-d2c7c.firebaseio.com</string>
 </dict>
 </plist>

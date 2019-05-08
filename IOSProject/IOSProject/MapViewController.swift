@@ -12,7 +12,7 @@ import CoreLocation
 
 
 class MapViewController: UIViewController, MKMapViewDelegate {
-
+    
     let locationManager = CLLocationManager()
     
     @IBAction func DateChanged(_ sender: UIDatePicker) {
@@ -36,8 +36,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FirebaseService.getInstance().mapController = self
         getReadings()
     }
+    
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is MKPointAnnotation else { return nil }
@@ -59,7 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         return annotationView
     }
- 
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             performSegue(withIdentifier: "readingDetails", sender: view)
@@ -76,33 +78,22 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     
     func getReadings(){
-        //Test Data
-        /*
-        let annotation = MKPointAnnotation()
-        annotation.title = datePicker.date.description
-        annotation.subtitle = "ID: 123 PH: 12.5 Moist: 11.5 Temp: 5 degress"
-        let lat = Double(56.120698)
-        let long = Double(10.146591)
-        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        annotation.coordinate = coordinate
-        mapView.addAnnotation(annotation)
-        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
-        mapView.setRegion(region, animated: true)*/
-        
         //Get Data from firebase.
-        
-        if let data = FirebaseService.getInstance().getDataList(ids: [3348]) {
-            print("Data: \(data)")
+        if let data = FirebaseService.getInstance().getDataLists() {
             for reading in data{
                 //Check if the date is equal to the date chosen.
-                if reading.date == datePicker.date{
+                if removeTimeStamp(fromDate: reading.date) == removeTimeStamp(fromDate: datePicker.date){
                     //Make the coord
+                    
+                    print("Test")
+                    print(reading.date)
+                    print(datePicker.date)
                     let coordinate = reading.coordinate
                     
                     //Sets region if its the last data
                     
-                    //let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
-                    //mapView.setRegion(region, animated: true)
+                    let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
+                    mapView.setRegion(region, animated: true)
                     
                     //Make annotation with description
                     let annotation = MKPointAnnotation()
@@ -115,7 +106,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-
+    func removeTimeStamp(fromDate: Date) -> Date{
+        guard let date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: fromDate))else{
+            fatalError("Failed to strip time to from Date object")
+        }
+        return date
+    }
+    
 }
 
 

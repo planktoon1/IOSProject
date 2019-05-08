@@ -68,7 +68,7 @@ class BluetoothConnection: UIViewController {
             let moisture: Float = Float(dataAsArray[6])
             let EC: Float = Float(dataAsArray[7])
             
-            let dataObject = Data(latitude: lat, longitude: long, airTemp: airTemp, soilTemp: soilTemp, ph: ph, humidity: humidity, moisture: moisture, EC: EC)
+            let dataObject = Data(latitude: lat, longitude: long, airTemp: airTemp, soilTemp: soilTemp, ph: ph, humidity: humidity, moisture: moisture, EC: EC, date: Date.init())
             
             FirebaseService.getInstance().pushDataObject(data: dataObject)
             self.showPopup(msg: "Uploadede nyt datapunkt til databasen")
