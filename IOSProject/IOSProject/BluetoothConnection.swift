@@ -19,9 +19,15 @@ class BluetoothConnection: UIViewController {
     var characteristic: CBCharacteristic?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         centralManager = CBCentralManager(delegate: self, queue: nil)
     }
     
+    private func showPopup(msg: String){
+        let popup = UIAlertController(title: "Bluetooth status", message: msg, preferredStyle: .alert)
+        popup.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(popup, animated: true)
+    }
 }
 
 extension BluetoothConnection: CBCentralManagerDelegate {
@@ -48,6 +54,7 @@ extension BluetoothConnection: CBCentralManagerDelegate {
                 timer?.invalidate()
                 
                 // TODO: Send warning at der ikke blev fundet nogen enheder
+                self.showPopup(msg: "Der blev ikke fundet nogen enhed")
             }
         }
     }
@@ -68,10 +75,12 @@ extension BluetoothConnection: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         // TODO: Send warning at der ikke kunnes oprettes forbindelse til enhed
+        self.showPopup(msg: "Fandt en enhed, men kunne ikke oprette forbindelse")
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         // TODO: Send warning at der blev disconnected fra enhed
+        self.showPopup(msg: "Blev disconnected fra enheden")
     }
     
 }
