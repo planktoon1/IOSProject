@@ -28,6 +28,8 @@ class BluetoothConnection: UIViewController {
     var peripheral: CBPeripheral?
     var characteristic: CBCharacteristic?
     
+    var buffer: String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,19 +58,19 @@ class BluetoothConnection: UIViewController {
     private func finishedCollectingData(data: String){
         print(data)
         
-        if let dataAsArray = data?.components(separatedBy: ",") {
-            var lat: Float = Float(dataAsArray[0])
-            var long: Float = Float(dataAsArray[1])
-            var airTemp: Float = Float(dataAsArray[2])
-            var soilTemp: Float = Float(dataAsArray[3])
-            var ph: Float = Float(dataAsArray[4])
-            var humidity: Float = Float(dataAsArray[5])
-            var moisture: Float = Float(dataAsArray[6])
-            var EC: Float = Float(dataAsArray[7])
+        if let dataAsArray = data.components(separatedBy: ",") as? [String] {
+            let lat: Float = Float(locationData?.latitude ?? 0)
+            let long: Float = Float(locationData?.longitude ?? 0)
+            let airTemp: Float = Float(dataAsArray[2])
+            let soilTemp: Float = Float(dataAsArray[3])
+            let ph: Float = Float(dataAsArray[4])
+            let humidity: Float = Float(dataAsArray[5])
+            let moisture: Float = Float(dataAsArray[6])
+            let EC: Float = Float(dataAsArray[7])
             
-            let dataObject = Data(latitude: locationData.latitude, longtitude: locationData.longtitude, airTemp: airTemp, soilTemp: soilTemp, ph: ph, humidity: humidity, moisture: moisture, EC: EC)
+            let dataObject = Data(latitude: lat, longitude: long, airTemp: airTemp, soilTemp: soilTemp, ph: ph, humidity: humidity, moisture: moisture, EC: EC)
             
-            FirebaseService.getInstance().pushDataObject(dataObject)
+            FirebaseService.getInstance().pushDataObject(data: dataObject)
             self.showPopup(msg: "Uploadede nyt datapunkt til databasen")
 
         }
@@ -163,7 +165,7 @@ extension BluetoothConnection: CBPeripheralDelegate {
         }
     }
     
-    var buffer: String = ""
+    
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
             // Ændres til at passe med den data vi får fra dimsen
         if let data = String(bytes: characteristic.value!, encoding: String.Encoding.utf8) {
