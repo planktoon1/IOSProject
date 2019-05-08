@@ -11,19 +11,25 @@ import CoreLocation
 
 class Data {
     var coordinate: CLLocationCoordinate2D
-    var ph: Int
-    var moisture: Int
-    var temperature: Int
+    var airTemp: Float
+    var soilTemp: Float
+    var ph: Float
+    var humidity: Float
+    var moisture: Float
+    var EC: Float
     var id: Int
     var date: Date
     
-    init(coordinate: CLLocationCoordinate2D, ph: Int, moisture: Int, temperature: Int, id: Int, date: Date) {
-        self.coordinate = coordinate //Fås fra telefonen
+    init(latitude: Float, longtitude: Float, airTemp: Float, soilTemp: Float, ph: Float, humidity: Float, moisture: Float, EC: Float) {
+        self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude) //Fås fra telefonen
+        self.airTemp = airTemp //Fås fra sensor
+        self.soilTemp = soilTemp //Fås fra sensor
         self.ph = ph //Fås fra sensor
+        self.humidity = humidity //Fås fra sensor
         self.moisture = moisture //Fås fra sensor
-        self.temperature = temperature //Fås fra sensor
-        self.id = id //Fås fra sensor
-        self.date = date
+        self.EC = EC //Fås fra sensor
+        self.id = id
+        self.date = Date.init()
     }
     
     func asDictionary() -> NSDictionary{
@@ -32,9 +38,12 @@ class Data {
         let result = [
             "Latitude" : self.coordinate.latitude,
             "Longitude" : self.coordinate.longitude,
+            "airTemp" : self.airTemp,
+            "soilTemp" : self.soilTemp,
             "PH" : self.ph,
+            "Humidity" : self.humidity,
             "Moisture" : self.moisture,
-            "Temperature" : self.temperature,
+            "EC" : self.EC,
             "ID" : self.id,
             "Date" : formatter.string(from: self.date)
             ] as NSDictionary
