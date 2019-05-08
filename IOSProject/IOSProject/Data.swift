@@ -20,15 +20,17 @@ class Data {
     var id: Int
     var date: Date
     
-    init(latitude: Float, longtitude: Float, airTemp: Float, soilTemp: Float, ph: Float, humidity: Float, moisture: Float, EC: Float) {
-        self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude) //Fås fra telefonen
+    init(latitude: Float, longitude: Float, airTemp: Float, soilTemp: Float, ph: Float, humidity: Float, moisture: Float, EC: Float) {
+        let lat = Double(latitude)
+        let long = Double(longitude)
+        self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long) //Fås fra telefonen
         self.airTemp = airTemp //Fås fra sensor
         self.soilTemp = soilTemp //Fås fra sensor
         self.ph = ph //Fås fra sensor
         self.humidity = humidity //Fås fra sensor
         self.moisture = moisture //Fås fra sensor
         self.EC = EC //Fås fra sensor
-        self.id = id
+        self.id = 1 //Tempvalue
         self.date = Date.init()
     }
     
