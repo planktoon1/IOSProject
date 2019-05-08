@@ -35,7 +35,7 @@ class FirebaseService {
         }
     }
     
-    let testData = Data(coordinate: CLLocationCoordinate2DMake(0.0, 0.0), ph: 10, moisture: 18, temperature: 8, id: 3348, date: Date.init())
+    let testData = Data(coordinate: CLLocationCoordinate2DMake(0.0, 0.0), ph: 10, moisture: 18, humidity: 25, temperature: 8, id: 3348, date: Date.init())
 
     func pushTestData(){
         pushDataObject(data: testData)
