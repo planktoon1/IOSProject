@@ -97,18 +97,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 //Check if the date is equal to the date chosen.
                 if reading.date == datePicker.date{
                     //Make the coord
-                    /*
-                    let coordinate = CLLocationCoordinate2D(latitude: reading.latitude, longitude: reading.longitude)
+                    let coordinate = reading.coordinate
                     
                     //Sets region if its the last data
                     
-                    let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
-                    mapView.setRegion(region, animated: true)
-                    */
+                    //let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
+                    //mapView.setRegion(region, animated: true)
+                    
                     //Make annotation with description
                     let annotation = MKPointAnnotation()
                     annotation.title = reading.date.description
-                    annotation.subtitle = "PH: \(reading.ph) Moist: \(reading.moisture) Temp: \(reading.temperature) Humid: \(reading.humidity)"
+                    annotation.subtitle = "PH: \(reading.ph) Moist: \(reading.moisture) Temp: \(reading.soilTemp) Humid: \(reading.humidity)"
                     annotation.coordinate = coordinate
                     mapView.addAnnotation(annotation)
                 }
