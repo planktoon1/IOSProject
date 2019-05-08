@@ -10,23 +10,82 @@ import Foundation
 import CoreBluetooth
 import UIKit
 import CoreLocation
+import MapKit
+import CoreLocation
+
+extension Float {
+    init(_ value: String){
+        self = (value as NSString).floatValue
+    }
+}
 
 class BluetoothConnection: UIViewController {
     
     var firebaseService = FirebaseService.getInstance()
+    let locationManager = CLLocationManager()
+    var locationData: CLLocationCoordinate2D?
     var centralManager: CBCentralManager?
     var peripheral: CBPeripheral?
     var characteristic: CBCharacteristic?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         centralManager = CBCentralManager(delegate: self, queue: nil)
+        
+        // ****** GPS *******
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
     
     private func showPopup(msg: String){
         let popup = UIAlertController(title: "Bluetooth status", message: msg, preferredStyle: .alert)
         popup.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(popup, animated: true)
+    }
+    
+    private func finishedCollectingData(data: String){
+        print(data)
+        
+        if let dataAsArray = data?.components(separatedBy: ",") {
+            var lat: Float = Float(dataAsArray[0])
+            var long: Float = Float(dataAsArray[1])
+            var airTemp: Float = Float(dataAsArray[2])
+            var soilTemp: Float = Float(dataAsArray[3])
+            var ph: Float = Float(dataAsArray[4])
+            var humidity: Float = Float(dataAsArray[5])
+            var moisture: Float = Float(dataAsArray[6])
+            var EC: Float = Float(dataAsArray[7])
+            
+            let dataObject = Data(latitude: locationData.latitude, longtitude: locationData.longtitude, airTemp: airTemp, soilTemp: soilTemp, ph: ph, humidity: humidity, moisture: moisture, EC: EC)
+            
+            FirebaseService.getInstance().pushDataObject(dataObject)
+            self.showPopup(msg: "Uploadede nyt datapunkt til databasen")
+
+        }
+    }
+}
+
+extension BluetoothConnection: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        self.locationData = locValue;
+        print("location = \(locValue.latitude) \(locValue.longitude)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if(status == CLAuthorizationStatus.denied) {
+            self.showPopup(msg: "Kunne ikke få adgang til gps")
+        }
     }
 }
 
@@ -104,20 +163,19 @@ extension BluetoothConnection: CBPeripheralDelegate {
         }
     }
     
+    var buffer: String = ""
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        // Ændres til at passe med den data vi får fra dimsen
-        let data = String(bytes: characteristic.value!, encoding: String.Encoding.utf8)
-        if let data = data?.components(separatedBy: ":") {
-            if data.count > 3 {
-                // TODO: Opret data og gem i firebase
-                let id = data[0]
-                let moist = data[1]
-                let ph = data[2]
-                let temp = data[3]
-                
-                //let testData = Data(coordinate: CLLocationCoordinate2DMake(0.0, 0.0), ph: ph, moisture: moist, temperature: temp, id: id, date: Date.init())
-                //firebaseService.pushDataObject(data: testData)
+            // Ændres til at passe med den data vi får fra dimsen
+        if let data = String(bytes: characteristic.value!, encoding: String.Encoding.utf8) {
+            
+            if data.last == "*" {
+                buffer = buffer + data
+                self.finishedCollectingData(data: buffer)
+                buffer = ""
+            } else {
+                buffer = buffer + data
             }
         }
     }
+    
 }
