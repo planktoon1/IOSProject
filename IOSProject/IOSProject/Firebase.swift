@@ -34,8 +34,7 @@ class FirebaseService {
             return instance!
         }
     }
-    
-    let testData = Data(coordinate: CLLocationCoordinate2DMake(0.0, 0.0), ph: 10, moisture: 18, humidity: 25, temperature: 8, id: 3348, date: Date.init())
+    let testData = Data(latitude: 0.0, longitude: 0.0, airTemp: 22.1, soilTemp: 15.0, ph: 5.1, humidity: 73.7, moisture: 51.2, EC: 1.002)
 
     func pushTestData(){
         pushDataObject(data: testData)
@@ -63,16 +62,18 @@ class FirebaseService {
         
         let dataDict = snapshot.value as? [String: AnyObject] ?? [:]
         
-        let coordinate = CLLocationCoordinate2D.init(latitude: dataDict["Latitude"] as! CLLocationDegrees,longitude: dataDict["Longitude"] as! CLLocationDegrees)
-        let date = formatter.date(from: dataDict["Date"] as! String)
+        //let coordinate = CLLocationCoordinate2D.init(latitude: dataDict["Latitude"] as! CLLocationDegrees,longitude: dataDict["Longitude"] as! CLLocationDegrees)
+        let lat = dataDict["Latitude"] as! Float
+        let long = dataDict["Longitude"] as! Float
+        let airTemp = dataDict["airTemp"] as! Float
+        let soilTemp = dataDict["soilTemp"] as! Float
+        let ph = dataDict["PH"] as! Float
+        let humidity = dataDict["Humidity"] as! Float
+        let moisture = dataDict["Moisture"] as! Float
+        let ec = dataDict["EC"] as! Float
         
-        let temperature = dataDict["Temperature"] as! Int
-        let ph = dataDict["PH"] as! Int
-        let moisture = dataDict["Moisture"] as! Int
-        let id = dataDict["ID"] as! Int
         
-        
-        return Data(coordinate: coordinate, ph: ph, moisture: moisture, temperature: temperature, id: id, date: date!)
+        return Data(latitude: lat, longitude: long, airTemp: airTemp, soilTemp: soilTemp, ph: ph, humidity: humidity, moisture: moisture, EC: ec)
     }
     
     func getDataList(ids: [Int]) -> [Data]? {

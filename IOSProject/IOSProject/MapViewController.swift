@@ -77,6 +77,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func getReadings(){
         //Test Data
+        /*
         let annotation = MKPointAnnotation()
         annotation.title = datePicker.date.description
         annotation.subtitle = "ID: 123 PH: 12.5 Moist: 11.5 Temp: 5 degress"
@@ -86,37 +87,32 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         annotation.coordinate = coordinate
         mapView.addAnnotation(annotation)
         let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
-        mapView.setRegion(region, animated: true)
+        mapView.setRegion(region, animated: true)*/
         
         //Get Data from firebase.
-        /*
-        if let data = Data.getData(){
+        
+        if let data = FirebaseService.getInstance().getDataList(ids: [3348]) {
+            print("Data: \(data)")
             for reading in data{
                 //Check if the date is equal to the date chosen.
-                if data.date == datePicker.date{
-                    //Latitude and longitude for the coord.
-                    let lat = Double(data.coordinates.lat)
-                    let long = Double(data.coordinates.long)
-                    if let lat = lat, let long = long{
-                        //Make the coord
-                        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                if reading.date == datePicker.date{
+                    //Make the coord
+                    let coordinate = reading.coordinate
                     
-                        //Sets region if its the last data
-                        if reading == data[data.length]{
-                            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
-                            mapView.setRegion(region, animated: true)
-                        }
-                        //Make annotation with description
-                        let annotation = MKPointAnnotation()
-                        annotation.title = data.date
-                        annotation.subtitle = "PH: \(data.ph) Moist: \(data.moisture) Temp: \(data.temperature) Humid: \(data.humidity)"
-                        annotation.coordinate = coordinate
-                        mapView.addAnnotation(annotation)
-                    }
+                    //Sets region if its the last data
+                    
+                    //let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
+                    //mapView.setRegion(region, animated: true)
+                    
+                    //Make annotation with description
+                    let annotation = MKPointAnnotation()
+                    annotation.title = reading.date.description
+                    annotation.subtitle = "PH: \(reading.ph) Moist: \(reading.moisture) Temp: \(reading.soilTemp) Humid: \(reading.humidity)"
+                    annotation.coordinate = coordinate
+                    mapView.addAnnotation(annotation)
                 }
             }
         }
-    */
     }
     
 
