@@ -23,12 +23,6 @@ class FirebaseService {
     
     private init() {
         dataList = []
-        /*
-        reference = Database.database().reference().child("x")
-       reference.observe(.childAdded, with: { (snapshot) in
-            print(snapshot)
-        })
-         */
         
         reference.observe(DataEventType.childAdded) { (snapshot) in
             self.dataList.append(self.firebaseToData(snapshot))
@@ -37,6 +31,7 @@ class FirebaseService {
     }
     
     func updateDataList(){
+        mapController?.mapView.removeAnnotations((mapController?.mapView.annotations)!)
         mapController?.getReadings()
     }
  

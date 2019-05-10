@@ -109,38 +109,56 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="airTempMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="PRp-Iz-HHr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="airTempMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="PRp-Iz-HHr">
                                 <rect key="frame" x="202" y="79" width="148" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="jEm-bW-1g7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="humidityMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="Boc-c2-Ofm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="humidityMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="Boc-c2-Ofm">
                                 <rect key="frame" x="202" y="151" width="148" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="Wo8-gm-1pp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="soilTempMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="aFg-cW-Tjc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="soilTempMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="aFg-cW-Tjc">
                                 <rect key="frame" x="202" y="222" width="148" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="QD8-Tv-AcB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="soilMoistureMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="C8E-VS-qAy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="soilMoistureMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="C8E-VS-qAy">
                                 <rect key="frame" x="202" y="293" width="148" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="bvo-jZ-x5c"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="phMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="dp7-zG-QNB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="dp7-zG-QNB">
                                 <rect key="frame" x="202" y="364" width="148" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="Y5N-W1-9ru"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="electricalConductMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="0kG-mx-k3b">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="electricalConductMeasurementLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="0kG-mx-k3b">
                                 <rect key="frame" x="202" y="435" width="148" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="KAN-hn-L46"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
